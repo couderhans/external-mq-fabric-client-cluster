@@ -4,25 +4,9 @@ MQ-Fabric Client Cluster Example
 This project is based on FuseByExample/external-mq-fabric-client which you can find on:
 https://github.com/FuseByExample/external-mq-fabric-client
 
-Like the external-mq-fabric-client project, this project is a demo to show how to connect from outside
-to JBoss AMQ message brokers, running in Fuse Fabric.
+Like the external-mq-fabric-client project, this project is a demo to show how to connect to
+JBoss AMQ message brokers, running in Fuse Fabric, from outside.
 
-
-Getting started: Setup a fabric-based network of brokers
--------------------------------------------------------------
-
-Start a fabric-based network of fault-tolerant (master/slave) brokers.
-For instructions on how to configure and deploy such a network, see the
-[fabric-ha-setup-master-slave.md](./docs/fabric-ha-setup-master-slave.md).
-
-This configuration features two broker groups networked together,
-named "mq-east" and "mq-west", each of which is comprised of a
-master/slave pair (four brokers total). Consumers will connect to the
-active broker in the "mq-west" group; producers to the active broker
-in the "mq-east" group, insuring that messages flow across the
-network. After the example is up and running, one can kill either or
-both of the active brokers and observe continued message flow across
-the network.
 
 
 Setting the zookeeper.url
@@ -85,7 +69,21 @@ discovery protocol (see the `pom.xml` for version info):
         <version>${osgi.version}</version>
     </dependency>
 
+Setup the examples against a fabric-based network of brokers
+-------------------------------------------------------------
 
+Start a fabric-based network of fault-tolerant (master/slave) brokers.
+For instructions on how to configure and deploy such a network, see the
+[fabric-ha-setup-master-slave.md](./docs/fabric-ha-setup-master-slave.md).
+
+This configuration features two broker groups networked together,
+named "mq-east" and "mq-west", each of which is comprised of a
+master/slave pair (four brokers total). Consumers will connect to the
+active broker in the "mq-west" group; producers to the active broker
+in the "mq-east" group, insuring that messages flow across the
+network. After the example is up and running, one can kill either or
+both of the active brokers and observe continued message flow across
+the network.
 
 Running the examples
 --------------------
